@@ -1,0 +1,31 @@
+{% load static from staticfiles %}
+<html>
+    <head>
+        <title>{% block title %}Vahanalytics{% endblock title %}</title>
+        
+        <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}" />
+        
+        <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+<!--        <script type="text/javascript" src="{% static 'js/jquery.validate.js' %}"></script>  -->
+        <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+    </head>
+    <body>
+        {% block header %}
+            <div class="header" id="header">
+                <h1>UrbTranz</h1>
+            </div>
+            <div>
+                <h3> Select Driver</h3>
+                <select class="driver_list" id="driver_list" name="drivers">
+                    <option value="None">None</option>
+                </select>
+            </div>
+            <div>
+                <h3> Select Trip</h3>
+                <select class="trip_list" id="trip_list" name="trips">
+                    <option value="None">None</option>
+                 </select>
+            </div>
+        {% endblock header %}
+    </body>
+</html>
