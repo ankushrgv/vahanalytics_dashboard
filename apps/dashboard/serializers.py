@@ -29,7 +29,7 @@ class TripListSerializer(DocumentSerializer):
 		fields = ('id', 'driver')
 
 
-class TripDetailsSerializer(DocumentSerializer):
+class TripDetailSerializer(DocumentSerializer):
 
 	acceleration = AccelerationSerializer(many=True)
 	events = EventSerializer(many=True)
@@ -37,7 +37,7 @@ class TripDetailsSerializer(DocumentSerializer):
 
 	class Meta:
 		model = Trip
-		fields = ('acceleration','events', 'scores')
+		fields = ('id','acceleration','events', 'scores')
 
 
 class DriverListSerializer(DocumentSerializer):

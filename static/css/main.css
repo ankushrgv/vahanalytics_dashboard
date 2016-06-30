@@ -1,0 +1,52 @@
+
+body{
+	margin: 0;
+	background-color: #E8E8E8;
+}
+
+
+.header{
+	text-align: center;
+	height:70px;
+	background-color: #202121;
+}
+
+.header h1{
+	padding-top: 20px;
+	margin: 0px;
+	color: #C8CCCC;
+}
+
+.input-container{
+	margin-left: 30px;
+	width: 400px;
+}
+
+.driver-select, .trip-select {
+    width: 400px;
+}
+
+.driver-select h3, .driver-select select, .trip-select h3, .trip-select select {
+    display: inline-block;
+}
+
+.driver-select h3, .trip-select h3 {
+    width: 200px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.driver-select select, .trip-select select {
+    width: 185px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    height: 35px;
+    padding-left: 10px;
+}
+
+.trip-details {
+	width: 500px;
+	height: 350px;
+	margin-left: 30px;
+	margin-top: 30px;
+}

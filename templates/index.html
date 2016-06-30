@@ -6,7 +6,7 @@
         <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}" />
         
         <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
-<!--        <script type="text/javascript" src="{% static 'js/jquery.validate.js' %}"></script>  -->
+        <script type="text/javascript" src="{% static 'js/highcharts.js' %}"></script> 
         <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
     </head>
     <body>
@@ -14,17 +14,31 @@
             <div class="header" id="header">
                 <h1>UrbTranz</h1>
             </div>
-            <div>
-                <h3> Select Driver</h3>
-                <select class="driver_list" id="driver_list" name="drivers">
-                    <option value="None">None</option>
-                </select>
+            <div class="input-container" id="input-container">
+                <div class="driver-select" id="driver-select">
+                    <h3> Select Driver : </h3>
+                    <select class="driver_list" id="driver_list" name="drivers">
+                        <option value="None">None</option>
+                    </select>
+                </div>
+                <div class="trip-select" id="trip-select">
+                    <h3> Select Trip : </h3>
+                    <select class="trip_list" id="trip_list" name="trips">
+                        <option value="None">None</option>
+                     </select>
+                </div>
             </div>
-            <div>
-                <h3> Select Trip</h3>
-                <select class="trip_list" id="trip_list" name="trips">
-                    <option value="None">None</option>
-                 </select>
+            <div class="trip-details" id="trip-details">
+                <div class="acceleration" id="acceleration">
+
+                </div>
+                <div class="events" id="events">
+
+                </div>
+                <div class="scores" id="scores">
+
+                </div>
+                
             </div>
         {% endblock header %}
     </body>

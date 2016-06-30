@@ -58,3 +58,19 @@ class TripList(APIView):
 		serializer = serializers.TripListSerializer(trips, many=True)
 		print "trip serializer data = ",serializer.data
 		return Response(serializer.data)
+
+class TripDetail(APIView):
+	"""
+	Retrieve, update or delete a snippet instance.
+	"""
+	def get_object(self, pk):
+		try:
+			return models.Trip.objects.get(pk=pk)
+		except models.Trip.DoesNotExist:
+			raise Http404
+
+	def get(self, request, pk, format=None):
+		trip = self.get_object(pk)
+		serializer = serializers.TripDetailSerializer(trip)
+		return Response(serializer.data)
+
