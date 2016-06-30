@@ -7,49 +7,64 @@ body{
 
 .header{
 	text-align: center;
-	height:70px;
+	height:50px;
 	background-color: #202121;
 }
 
 .header h1{
-	padding-top: 20px;
+	padding-top: 5px;
 	margin: 0px;
 	color: #C8CCCC;
 }
 
 .input-container{
 	margin-left: 30px;
-	width: 400px;
+	width: 300px;
 	display: inline-block;
-	margin-top: -377px;
+	margin-top: -327px;
 }
 
 .driver-select, .trip-select {
-    width: 400px;
+    width: 300px;
 }
 
-.driver-select h3, .driver-select select, .trip-select h3, .trip-select select {
+.driver-select h4, .driver-select select, .trip-select h4, .trip-select select {
     display: inline-block;
 }
 
-.driver-select h3, .trip-select h3 {
-    width: 200px;
+.driver-select h4, .trip-select h4 {
+    width: 130px;
     margin-top: 15px;
     margin-bottom: 15px;
+    /*font-size: 12px;*/
 }
 
 .driver-select select, .trip-select select {
-    width: 185px;
+    width: 160px;
     margin-top: 15px;
     margin-bottom: 15px;
     height: 35px;
     padding-left: 10px;
+    font-size: 12px;
 }
 
-.events-container {
-	width: 500px;
-	height: 350px;
-	margin-left: 30px;
-	margin-top: 30px;
+.acceleration-container {
+	width: 600px;
+	height: 300px;
+	margin-left: 340px;
+	margin-top: 15px;
 	display: inline-block;
 }
+
+.events-container, .scores-container {
+	width: 600px;
+	height: 280px;
+	margin-top: -12px;
+	margin-left: 35px;
+	display: inline-block;
+}
+
+
+
+
+

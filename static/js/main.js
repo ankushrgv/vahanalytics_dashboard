@@ -129,6 +129,108 @@ function populateTripDetails(id){
             	main_acceleration_array[i] = [response.acceleration[i].time_axis, response.acceleration[i].acc];
             }
 
+            // getting value of score and time
+            var no_of_score_instance = Object.keys(response.scores).length;
+
+            var main_score_array = [];
+			var inner_score_array = [];
+
+			for(i=0; i<no_of_score_instance; i++){
+            	main_score_array[i] = [response.scores[i].time_axis, response.scores[i].score];
+            }
+
+   			$(function () {
+		        // Create the chart
+		        $('#acceleration-container').highcharts('StockChart', {
+
+
+		            rangeSelector : {
+		                selected : 1
+		            },
+
+		            title : {
+		                text : 'Acceleration vs Time Instance'
+		            },
+		            xAxis: {
+			            title: {
+			                text: 'Time'
+			            }
+			        },
+		            yAxis: {
+			            title: {
+			                text: 'Acceleration'
+			            }
+			        },
+		            series : [{
+		                name : 'Acceleration',
+		                data : main_acceleration_array,
+		                type : 'areaspline',
+		                threshold : null,
+		                tooltip : {
+		                    valueDecimals : 2
+		                },
+		                fillColor : {
+		                    linearGradient : {
+		                        x1: 0,
+		                        y1: 0,
+		                        x2: 0,
+		                        y2: 1
+		                    },
+		                    stops : [
+		                        [0, Highcharts.getOptions().colors[1]],
+		                        [1, Highcharts.Color(Highcharts.getOptions().colors[5]).setOpacity(0).get('rgba')]
+		                    ]
+		                }
+		            }]
+		        });
+		    });
+
+		    $(function () {
+		        // Create the chart
+		        $('#scores-container').highcharts('StockChart', {
+
+
+		            rangeSelector : {
+		                selected : 1
+		            },
+
+		            title : {
+		                text : 'Score vs Time Instance'
+		            },
+		            xAxis: {
+			            title: {
+			                text: 'Time'
+			            }
+			        },
+		            yAxis: {
+			            title: {
+			                text: 'Score'
+			            }
+			        },
+		            series : [{
+		                name : 'Score',
+		                data : main_score_array,
+		                type : 'areaspline',
+		                threshold : null,
+		                tooltip : {
+		                    valueDecimals : 2
+		                },
+		                fillColor : {
+		                    linearGradient : {
+		                        x1: 0,
+		                        y1: 0,
+		                        x2: 0,
+		                        y2: 1
+		                    },
+		                    stops : [
+		                        [0, Highcharts.getOptions().colors[1]],
+		                        [1, Highcharts.Color(Highcharts.getOptions().colors[1]).setOpacity(0).get('rgba')]
+		                    ]
+		                }
+		            }]
+		        });
+		    });
+
    			$(function () { 
 			   	$('#events-container').highcharts({
 			        chart: {
@@ -150,58 +252,6 @@ function populateTripDetails(id){
 			        }]
 			    });
 			});
-
-
-   			$(function () {
-			    $.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=aapl-c.json&callback=?', function (data) {
-				console.log(main_acceleration_array);
-				// console.log(response.acceleration[0].time_axis);
-			        // Create the chart
-			        $('#acceleration').highcharts('StockChart', {
-
-
-			            rangeSelector : {
-			                selected : 1
-			            },
-
-			            title : {
-			                text : 'Acceleration vs Time Instance'
-			            },
-			            xAxis: {
-				            title: {
-				                text: 'Time'
-				            }
-				        },
-			            yAxis: {
-				            title: {
-				                text: 'Acceleration'
-				            }
-				        },
-			            series : [{
-			                name : 'Acceleration',
-			                data : main_acceleration_array,
-			                type : 'areaspline',
-			                threshold : null,
-			                tooltip : {
-			                    valueDecimals : 2
-			                },
-			                fillColor : {
-			                    linearGradient : {
-			                        x1: 0,
-			                        y1: 0,
-			                        x2: 0,
-			                        y2: 1
-			                    },
-			                    stops : [
-			                        [0, Highcharts.getOptions().colors[1]],
-			                        [1, Highcharts.Color(Highcharts.getOptions().colors[5]).setOpacity(0).get('rgba')]
-			                    ]
-			                }
-			            }]
-			        });
-			    });
-			});
-
 
         } else {
             $container.html("");
