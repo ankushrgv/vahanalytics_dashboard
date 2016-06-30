@@ -20,6 +20,8 @@ body{
 .input-container{
 	margin-left: 30px;
 	width: 400px;
+	display: inline-block;
+	margin-top: -377px;
 }
 
 .driver-select, .trip-select {
@@ -44,9 +46,10 @@ body{
     padding-left: 10px;
 }
 
-.trip-details {
+.events-container {
 	width: 500px;
 	height: 350px;
 	margin-left: 30px;
 	margin-top: 30px;
+	display: inline-block;
 }

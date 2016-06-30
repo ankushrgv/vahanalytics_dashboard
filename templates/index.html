@@ -6,7 +6,9 @@
         <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}" />
         
         <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
-        <script type="text/javascript" src="{% static 'js/highcharts.js' %}"></script> 
+        <script type="text/javascript" src="{% static 'js/stocks_highchart.js' %}"></script> 
+        <script type="text/javascript" src="{% static 'js/highcharts_exporting.js' %}"></script> 
+    <!--    <script type="text/javascript" src="{% static 'js/highcharts.js' %}"></script> -->
         <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
     </head>
     <body>
@@ -28,18 +30,18 @@
                      </select>
                 </div>
             </div>
-            <div class="trip-details" id="trip-details">
-                <div class="acceleration" id="acceleration">
-
+<!--            <div class="trip-details" id="trip-details"> 
+                <p>trip details container</p> -->
+                <div class="events-container" id="events-container">
+                    
                 </div>
-                <div class="events" id="events">
-
+                <div class="acceleration" id="acceleration">
+                    
                 </div>
                 <div class="scores" id="scores">
-
+                    
                 </div>
-                
-            </div>
+<!--            </div>  -->
         {% endblock header %}
     </body>
 </html>

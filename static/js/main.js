@@ -101,40 +101,36 @@ function populateTripDetails(id){
         $container = $('.trip-details');
         console.log("trip detail response returned");
 
-        e = response.events;
-        obj = typeof(e);
-
-        s = Object.keys(e).length;
-
-        console.log(s);
-
-
         var i = 0;
 
         if (response != null) {
 
-        	console.log("entered if"); 
             $container.html("");
 
-            var labels_size = Object.keys(response.events).length;
+            // getting value of event label and value
+            var no_of_events = Object.keys(response.events).length;
 
             var event_labels = [];
+            var event_values = [];
             var i = 0;
 
-            for(i=0; i<labels_size; i++){
+            for(i=0; i<no_of_events; i++){
             	event_labels[i] = response.events[i].label;
+            	event_values[i] = response.events[i].value;
             }
 
-			var event_values = [];
-            
-            for(i=0; i<labels_size; i++){
-            	event_values[i] = response.events[i].value;
-            }            
+            // getting value of acceleration and time
+            var no_of_acceleration_instance = Object.keys(response.acceleration).length;
 
+            var main_acceleration_array = [];
+			var inner_acceleration_array = [];
 
+			for(i=0; i<no_of_acceleration_instance; i++){
+            	main_acceleration_array[i] = [response.acceleration[i].time_axis, response.acceleration[i].acc];
+            }
 
    			$(function () { 
-			   	$('#trip-details').highcharts({
+			   	$('#events-container').highcharts({
 			        chart: {
 			            type: 'bar'
 			        },
@@ -142,7 +138,6 @@ function populateTripDetails(id){
 			            text: 'Events'
 			        },
 			        xAxis: {
-			            // categories: [response.events[0].label, response.events[1].label, response.events[2].label]
 			            categories: event_labels
 			        },
 			        yAxis: {
@@ -151,12 +146,62 @@ function populateTripDetails(id){
 			            }
 			        },
 			        series: [{
-			            // name: 'Jane',
-			            // data: [response.events[0].value, response.events[1].value, response.events[2].value]
 			            data: event_values
 			        }]
 			    });
 			});
+
+
+   			$(function () {
+			    $.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=aapl-c.json&callback=?', function (data) {
+				console.log(main_acceleration_array);
+				// console.log(response.acceleration[0].time_axis);
+			        // Create the chart
+			        $('#acceleration').highcharts('StockChart', {
+
+
+			            rangeSelector : {
+			                selected : 1
+			            },
+
+			            title : {
+			                text : 'Acceleration vs Time Instance'
+			            },
+			            xAxis: {
+				            title: {
+				                text: 'Time'
+				            }
+				        },
+			            yAxis: {
+				            title: {
+				                text: 'Acceleration'
+				            }
+				        },
+			            series : [{
+			                name : 'Acceleration',
+			                data : main_acceleration_array,
+			                type : 'areaspline',
+			                threshold : null,
+			                tooltip : {
+			                    valueDecimals : 2
+			                },
+			                fillColor : {
+			                    linearGradient : {
+			                        x1: 0,
+			                        y1: 0,
+			                        x2: 0,
+			                        y2: 1
+			                    },
+			                    stops : [
+			                        [0, Highcharts.getOptions().colors[1]],
+			                        [1, Highcharts.Color(Highcharts.getOptions().colors[5]).setOpacity(0).get('rgba')]
+			                    ]
+			                }
+			            }]
+			        });
+			    });
+			});
+
 
         } else {
             $container.html("");

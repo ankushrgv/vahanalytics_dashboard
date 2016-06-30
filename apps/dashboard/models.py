@@ -6,7 +6,7 @@ from mongoengine import *
 # Create your models here.
 
 class Acceleration(EmbeddedDocument):
-	time_axis = DateTimeField()
+	time_axis = LongField()
 	acc = FloatField()
 
 class Event(EmbeddedDocument):
@@ -14,7 +14,7 @@ class Event(EmbeddedDocument):
 	value = IntField()
 
 class Score(EmbeddedDocument):
-	time_axis = DateTimeField()
+	time_axis = LongField()
 	score = IntField()
 
 class Trip(Document):
