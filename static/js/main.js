@@ -8,6 +8,11 @@ $(document).on('ready', function(){
 	$("#driver_list").change(function () {
         
         var selectedDriver = $('#driver_list').val();
+        
+        $('#acceleration-container').html("");
+        $('#events-container').html("");
+        $('#scores-container').html("");
+
         populateDriverDetails(selectedDriver);
         populateTripsList(selectedDriver);
         // $("#trip-select").show()
@@ -29,9 +34,8 @@ function populateDriversList() {
         $container = $('.driver_list');
 
         var i = 0;
-
+        $container.html("");
         if (response.length > 0) { 
-            $container.html("");
 
             $container.append("<option value=''>None</option>");
 			
@@ -63,11 +67,11 @@ function populateDriverDetails(id) {
 	var url = "/driverdetails/" + id;
     $.get(url, function(response) {
     	$container = $('.driver-details');
-        console.log(response);
+
+        $container.html("");
 
         if (response != null) { 
             
-            $container.html("");
             $container.css('background-image', 'none');
 
             var f = document.createDocumentFragment();
@@ -138,9 +142,9 @@ function populateTripsList(id) {
         console.log("response returned");
 
         var i = 0;
+        $container.html("");
 
         if (response.length > 0) { 
-            $container.html("");
 
             $container.append("<option value='None'>None</option>");
 			
@@ -175,9 +179,8 @@ function populateTripDetails(id){
 
         var i = 0;
 
+        $container.html("");
         if (response != null) {
-
-            $container.html("");
 
             // getting value of event label and value
             var no_of_events = Object.keys(response.events).length;
