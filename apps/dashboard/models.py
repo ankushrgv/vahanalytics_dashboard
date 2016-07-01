@@ -24,7 +24,8 @@ class Trip(Document):
 	scores = ListField(EmbeddedDocumentField(Score))
 
 class Driver(Document):
-	first_name = StringField()
-	last_name = StringField()
+	first_name = StringField(max_length=15)
+	last_name = StringField(max_length=15)
 	age = IntField()
-	# trips = ListField(EmbeddedDocumentField(Trip))
+	contact_no = StringField(max_length=10)
+	city = StringField(max_length=25)

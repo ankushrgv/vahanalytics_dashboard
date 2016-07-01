@@ -6,22 +6,55 @@ body{
 
 
 .header{
-	text-align: center;
+	text-align: left;
 	height:50px;
 	background-color: #202121;
 }
 
-.header h1{
+.left-heading, .center-heading{
+	display: inline-block;
+	text-align: center;
+}
+
+
+.left-heading{
+	margin-left: 30px;
+}
+
+.left-heading h2, h3{
 	padding-top: 5px;
 	margin: 0px;
 	color: #C8CCCC;
+	display: inline-block;
+}
+
+.left-heading h2{
+	color: #FF1979;
+	font-size: 24px;
+}
+
+.left-heading h3{
+	color: #C4D180;
+	font-size: 24px;
+}
+
+.center-heading{
+	margin-left: 300px;
+}
+
+.center-heading h1{
+	color: #C8CCCC;
+	margin-top: 0px;
+	padding-top: 5px;
 }
 
 .input-container{
-	margin-left: 30px;
-	width: 300px;
+	margin-left: 35px;
+	width: 200px;
+	height: 300px;
 	display: inline-block;
-	margin-top: -327px;
+	margin-top: -400px;
+	background-color: #ffffff;
 }
 
 .driver-select, .trip-select {
@@ -29,7 +62,8 @@ body{
 }
 
 .driver-select h4, .driver-select select, .trip-select h4, .trip-select select {
-    display: inline-block;
+    /*display: inline-block;*/
+    margin-left: 20px;
 }
 
 .driver-select h4, .trip-select h4 {
@@ -48,12 +82,65 @@ body{
     font-size: 12px;
 }
 
+.driver-details {
+	display: inline-block;
+	background-color: #ffffff;
+	margin-left: 30px;
+	width: 365px;
+	height: 300px;
+	margin-top: -300px;
+	background-image :url(../images/driver.png);
+	background-repeat: no-repeat;
+	background-position: center; 
+}
+
+.driver-heading{
+	text-align: center;
+	margin-top: 10px;
+	height: 35px;
+}
+
+.driver-heading h2{
+	margin-top: 8px;
+	font-size: 18px;
+	/*margin-bottom: 5px;*/
+	/*padding-top: 5px;*/
+}
+
+.driver-details h3, h4, h5{
+	display: inline-block;
+	font-size: 15px;
+	text-align: left;
+	margin-top: 15.5px;
+	margin-bottom: 15.5px;
+}
+
+.driver-details h3{
+	width: 120px;
+	margin-left: 35px;
+}
+
+.driver-details h4{
+	width: 15px;
+	margin-right: 10px;
+}
+
+
+.driver-details h4{
+	width: 35px;
+	font-size: 15px;
+	/*margin-right: 10px;*/
+}
 .acceleration-container {
 	width: 600px;
 	height: 300px;
-	margin-left: 340px;
+	margin-left: 35px;
 	margin-top: 15px;
 	display: inline-block;
+	background-color: #ffffff;
+	background-image :url(../images/image1.png);
+	background-repeat: no-repeat;
+	background-position: center; 
 }
 
 .events-container, .scores-container {
@@ -62,9 +149,19 @@ body{
 	margin-top: -12px;
 	margin-left: 35px;
 	display: inline-block;
+	background-color: #ffffff;
+	background-image :url(../images/image1.png);
+	background-repeat: no-repeat;
+	background-position: center; 
 }
 
-
-
+.city{
+	margin-bottom: 30px;
+	padding-bottom: 30px;
+}
+/*
+.bg-image{
+	background-image :url(../images/image1.png);
+}*/
 
 

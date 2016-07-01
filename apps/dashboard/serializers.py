@@ -44,11 +44,11 @@ class DriverListSerializer(DocumentSerializer):
 
 	class Meta:
 		model = Driver
-		fields = ('id','first_name', 'last_name')
+		fields = ('id','first_name', 'last_name', 'age')
 
 
 class DriverDetailSerializer(DocumentSerializer):
 
 	class Meta:
 		model = Driver
-		fields = ('id', 'first_name', 'last_name', 'age')
+		fields = ('id', 'first_name', 'last_name', 'age', 'contact_no', 'city')

@@ -1,15 +1,16 @@
 
 $(document).on('ready', function(){
 	
-	$("#trip-select").hide();
+	// $("#trip-select").hide();
 
 	populateDriversList();
 
 	$("#driver_list").change(function () {
         
         var selectedDriver = $('#driver_list').val();
+        populateDriverDetails(selectedDriver);
         populateTripsList(selectedDriver);
-        $("#trip-select").show()
+        // $("#trip-select").show()
     });
 
     $("#trip_list").change(function () {
@@ -23,7 +24,6 @@ $(document).on('ready', function(){
 
 function populateDriversList() {
     
-    console.log("entered populateDriversList");
     var url = "/driverlist";
     $.get(url, function(response) {
         $container = $('.driver_list');
@@ -56,6 +56,82 @@ function populateDriversList() {
         }
     });
 }
+
+
+function populateDriverDetails(id) {
+
+	var url = "/driverdetails/" + id;
+    $.get(url, function(response) {
+    	$container = $('.driver-details');
+        console.log(response);
+
+        if (response != null) { 
+            
+            $container.html("");
+            $container.css('background-image', 'none');
+
+            var f = document.createDocumentFragment();
+
+            // var opt = document.createElement('');
+            // $(opt).attr('value', response[i].id);
+            // $(opt).text(response[i].first_name);
+
+            var heading = document.createElement('div');
+	        $(heading).attr('class', 'driver-heading');
+    	    $(heading).append($("<h2>").text(" Driver Details"));            
+
+            var f_name = document.createElement('div');
+	        $(f_name).attr('class', 'first-name');
+    	    $(f_name).append($("<h3>").text(" First Name "));
+    	    $(f_name).append($("<h4>").text(" : "));
+    	    $(f_name).append($("<h5>").text(response.first_name));
+
+
+    	    var l_name = document.createElement('div');
+	        $(l_name).attr('class', 'last-name');
+    	    $(l_name).append($("<h3>").text(" Last Name "));
+    	    $(l_name).append($("<h4>").text(" : "));
+    	    $(l_name).append($("<h5>").text(response.last_name));
+
+
+    	    var age = document.createElement('div');
+	        $(age).attr('class', 'age');
+    	    $(age).append($("<h3>").text(" Age "));
+    	    $(age).append($("<h4>").text(" : "));
+    	    $(age).append($("<h5>").text(response.age));
+
+
+    	    var contact = document.createElement('div');
+	        $(contact).attr('class', 'contact');
+    	    $(contact).append($("<h3>").text(" Contact No "));
+    	    $(contact).append($("<h4>").text(" : "));
+    	    $(contact).append($("<h5>").text(response.contact_no));
+
+
+    	    var city = document.createElement('div');
+	        $(city).attr('class', 'city');
+    	    $(city).append($("<h3>").text(" City "));
+    	    $(city).append($("<h4>").text(" : "));
+    	    $(city).append($("<h5>").text(response.city));
+
+
+    	    f.appendChild(heading);
+    	    f.appendChild(f_name);
+    	    f.appendChild(l_name);
+    	    f.appendChild(age);
+    	    f.appendChild(contact);
+    	    f.appendChild(city);
+
+	        $('.driver-details').append(f);
+
+        } else {
+            $container.html("");
+            $container.append("<option>Driver Details Not Found</option>");
+        }
+
+    });
+}
+
 
 function populateTripsList(id) {
     

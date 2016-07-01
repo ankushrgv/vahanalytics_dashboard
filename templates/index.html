@@ -14,8 +14,15 @@
     <body>
         {% block header %}
             <div class="header" id="header">
-                <h1>UrbTranz</h1>
+                <div class="left-heading">
+                    <h2>Vahan</h2><h3>alytics</h3>
+                </div>
+                <div class="center-heading">
+                    <h1>Analaytics Dashboard</h1>
+                </div>
             </div>
+        {% endblock header %}
+        {% block body %}
             <div class="input-container" id="input-container">
                 <div class="driver-select" id="driver-select">
                     <h4> Select Driver : </h4>
@@ -30,18 +37,14 @@
                      </select>
                 </div>
             </div>
-<!--            <div class="trip-details" id="trip-details"> 
-                <p>trip details container</p> -->
-                <div class="acceleration-container" id="acceleration-container">
-                    
-                </div>
-                <div class="events-container" id="events-container">
-                    
-                </div>
-                <div class="scores-container" id="scores-container">
-                    
-                </div>
-<!--            </div>  -->
-        {% endblock header %}
+            <div class="driver-details">
+            </div>
+            <div class="acceleration-container" id="acceleration-container">
+            </div>
+            <div class="events-container" id="events-container">
+            </div>
+            <div class="scores-container" id="scores-container">
+            </div>
+        {% endblock body %}
     </body>
 </html>
