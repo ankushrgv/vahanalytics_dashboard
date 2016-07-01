@@ -72,10 +72,6 @@ function populateDriverDetails(id) {
 
             var f = document.createDocumentFragment();
 
-            // var opt = document.createElement('');
-            // $(opt).attr('value', response[i].id);
-            // $(opt).text(response[i].first_name);
-
             var heading = document.createElement('div');
 	        $(heading).attr('class', 'driver-heading');
     	    $(heading).append($("<h2>").text(" Driver Details"));            

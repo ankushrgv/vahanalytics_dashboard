@@ -20,6 +20,7 @@ pexpect==4.1.0
 pickleshare==0.7.2
 ptyprocess==0.5.1
 pymongo==3.2.2
+python-dateutil==2.5.3
 pytz==2016.4
 requests==2.10.0
 simplegeneric==0.8.1
